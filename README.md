@@ -98,56 +98,9 @@ contact-book/
 
 ---
 
-## 💻 Utilisation
+## 💻 Utilisation 
 
-### Démarrage de l'application
 
-#### Étape 1 : Lancer JSON Server
-
-Dans un terminal, à la racine du projet :
-```bash
-json-server --watch db.json --port 3000
-```
-
-**Résultat attendu :**
-```
-\{^_^}/ hi!
-
-Loading db.json
-Done
-
-Resources
-http://localhost:3000/contacts
-
-Home
-http://localhost:3000
-```
-
-> ⚠️ **Important** : Gardez ce terminal ouvert pendant l'utilisation de l'application.
-
----
-
-#### Étape 2 : Ouvrir l'application
-
-**Option A : Avec Live Server (VS Code)**
-1. Installer l'extension "Live Server"
-2. Clic droit sur `index.html`
-3. Sélectionner **"Open with Live Server"**
-4. L'application s'ouvre sur `http://localhost:5500`
-
-**Option B : Avec http-server**
-```bash
-npx http-server
-```
-Ouvrir `http://localhost:8080`
-
-**Option C : Directement dans le navigateur**
-```
-Double-cliquer sur index.html
-```
-> ⚠️ Certaines fonctionnalités peuvent ne pas fonctionner (CORS).
-
----
 
 ### Utilisation de l'interface
 
