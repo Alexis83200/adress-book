@@ -8,8 +8,9 @@ const modal = document.createElement('div');
 modal.className = 'modal';
 modal.innerHTML = `
     <div class="modal-content">
-        <div class ="modal-buttons_exit">
+        <div class="modal-buttons_exit">
             <button type="button" class="btn-cancel">X</button>
+        </div>
         <h2>Ajouter un contact</h2>
         
         <form id="contact-form">
@@ -34,7 +35,6 @@ modal.innerHTML = `
             </div>
             
             <div class="modal-buttons">
-                
                 <button type="submit" class="btn-validate" disabled>Valider</button>
             </div>
         </form>
@@ -42,7 +42,7 @@ modal.innerHTML = `
 `;
 document.body.appendChild(modal);
 
-
+// Je charge les contacts existants au démarrage
 fetch(API_URL)
     .then(res => res.json())
     .then(contacts => {
@@ -51,14 +51,12 @@ fetch(API_URL)
             row.innerHTML = `
                 <td>${contact.nom}</td>
                 <td>${contact.prenom}</td>              
-                 <td><a href="mailto:${contact.email}">${contact.email}</a></td>
+                <td><a href="mailto:${contact.email}">${contact.email}</a></td>
             `;
             contactsList.appendChild(row);
         });
     })
-    .catch(err => console.error('Erreur chargement contacts', err));
-
-
+    .catch(err => console.error('Erreur chargement contacts :', err));
 
 // Je récupère les éléments de la modal
 const form = document.getElementById('contact-form');
@@ -93,7 +91,7 @@ btnAdd.addEventListener('click', () => {
     btnValidate.disabled = true; // Je grise le bouton
 });
 
-// Fermeture de la modal au clic sur Annuler
+// Fermeture de la modal au clic sur X
 btnCancel.addEventListener('click', () => {
     modal.style.display = 'none';
 });
@@ -107,9 +105,9 @@ modal.addEventListener('click', (e) => {
 
 // Soumission du formulaire
 form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page
+    e.preventDefault(); // J'empêche le rechargement de la page
     
-    // Récupération des valeurs du formulaire
+    // Je récupère les valeurs
     const nom = document.getElementById('modal-nom').value;
     const prenom = document.getElementById('modal-prenom').value;
     const email = document.getElementById('modal-email').value;
@@ -117,7 +115,7 @@ form.addEventListener('submit', (e) => {
     
     const newContact = { nom, prenom, email, phone };
 
-    // Envoi des données au serveur (json-server mettra à jour db.json)
+    // J'envoie au serveur (json-server sauvegarde dans db.json)
     fetch(API_URL, {
         method: 'POST',
         headers: {
@@ -127,19 +125,19 @@ form.addEventListener('submit', (e) => {
     })
     .then(res => res.json())
     .then(contact => {
-        // Création d'une ligne dans le tableau
+        // Je crée une nouvelle ligne dans le tableau
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
             <td>${contact.nom}</td>
             <td>${contact.prenom}</td>
-            <td>${contact.email}</td>
+            <td><a href="mailto:${contact.email}">${contact.email}</a></td>
         `;
         contactsList.appendChild(newRow);
 
-        // Fermeture de la modal
+        // Je ferme la modal
         modal.style.display = 'none';
 
-        console.log('Contact ajouté et sauvegardé dans db.json :', contact);
+        console.log('Contact ajouté et sauvegardé :', contact);
     })
-    .catch(err => console.error('Erreur ajout contact', err));
+    .catch(err => console.error('Erreur ajout contact :', err));
 });
