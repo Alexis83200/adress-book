@@ -1,236 +1,428 @@
-📒 Contact Book - Carnet de Contacts
-Application web de gestion de contacts avec interface intuitive et stockage JSON.
+# 📒 Contact Book - Carnet de Contacts
 
-📋 Table des matières
+Application web de gestion de contacts avec interface responsive et API REST.
 
-Aperçu
-Fonctionnalités
-Technologies utilisées
-Structure du projet
-Installation
-Utilisation
-Architecture technique
-API & Endpoints
-Améliorations futures
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
+---
 
-🎯 Aperçu
-Contact Book est une application de gestion de contacts développée en HTML/CSS/JavaScript vanilla. Elle permet d'ajouter, visualiser et gérer des contacts via une interface utilisateur moderne avec modal responsive.
-Caractéristiques principales :
+## 📋 Table des matières
 
-✅ Ajout de contacts via popup (modal)
-✅ Validation en temps réel des formulaires
-✅ Stockage des données en JSON (db.json)
-✅ Interface responsive avec bordures stylisées
-✅ Bouton "Valider" désactivé tant que tous les champs ne sont pas remplis
+- [Aperçu](#-aperçu)
+- [Fonctionnalités](#-fonctionnalités)
+- [Technologies utilisées](#️-technologies-utilisées)
+- [Structure du projet](#-structure-du-projet)
+- [Installation](#-installation)
+- [Utilisation](#-utilisation)
+- [Architecture technique](#️-architecture-technique)
+- [API REST](#-api-rest)
+- [Personnalisation](#-personnalisation)
 
+---
 
-⚡ Fonctionnalités
-1. Affichage des contacts
+## 🎯 Aperçu
 
-Tableau avec colonnes : Nom, Prénom, Email
-Design épuré avec bordures arrondies oranges
-En-tête et footer bleus
+**Contact Book** est une application web moderne de gestion de contacts développée en JavaScript vanilla. Elle utilise une API REST (JSON Server) pour la persistance des données et offre une interface utilisateur intuitive avec modal de saisie.
 
-2. Ajout de contacts
+### Caractéristiques principales
 
-Bouton + vert dans l'en-tête
-Modal (popup) avec formulaire 4 champs :
+✅ Interface responsive avec design moderne  
+✅ Ajout de contacts via popup (modal)  
+✅ Validation en temps réel des formulaires  
+✅ Persistance des données (JSON Server)  
+✅ Emails cliquables (mailto:)  
+✅ Chargement automatique des contacts au démarrage  
 
-Nom
-Prénom
-Email
-Téléphone
+---
 
+## ⚡ Fonctionnalités
 
+### 1. Affichage dynamique des contacts
+- Tableau avec colonnes : **Nom**, **Prénom**, **Email**
+- Design épuré avec bordures arrondies oranges
+- Effet hover sur les lignes du tableau
+- Liens emails cliquables
 
-3. Validation intelligente
+### 2. Ajout de contacts
+- Bouton **+** vert dans l'en-tête
+- Modal (popup) avec formulaire 4 champs :
+  - Nom (text)
+  - Prénom (text)
+  - Email (validation HTML5)
+  - Téléphone (tel)
 
-Bouton "Valider" grisé par défaut
-Activation automatique quand tous les champs sont remplis
-Vérification en temps réel (événement input)
+### 3. Validation intelligente
+- Bouton "Valider" **grisé** par défaut
+- Activation automatique quand tous les champs sont remplis
+- Vérification en temps réel (événement `input`)
+- Empêche la soumission si données manquantes
 
-4. Stockage JSON
+### 4. Persistance des données
+- Sauvegarde automatique dans `db.json`
+- Génération d'ID unique par JSON Server
+- Rechargement des contacts au démarrage
+- API REST complète (GET, POST)
 
-Sauvegarde dans db.json
-Génération automatique d'ID unique
-Structure normalisée des données
+---
 
+## 🛠️ Technologies utilisées
 
-🛠️ Technologies utilisées
-TechnologieUtilisationHTML5Structure sémantiqueCSS3Mise en forme + ModalJavaScript (ES6+)Logique métier + DOMJSONStockage des données
+| Technologie | Version | Utilisation |
+|-------------|---------|-------------|
+| **HTML5** | - | Structure sémantique |
+| **CSS3** | - | Mise en forme + Modal responsive |
+| **JavaScript ES6+** | - | Logique métier + Manipulation DOM |
+| **JSON Server** | ^0.17.0 | API REST + Base de données JSON |
+| **Fetch API** | - | Requêtes HTTP asynchrones |
 
-📁 Structure du projet
+---
+
+## 📁 Structure du projet
+```
 contact-book/
 │
-├── index.html          # Structure HTML principale
-├── note_book.css       # Styles (layout + modal)
-├── note_book.js        # Logique JavaScript
-└── db.json             # Base de données JSON
+├── index.html              # Page principale
+├── db.json                 # Base de données JSON
+│
+├── CSS/
+│   └── note_book.css       # Styles (layout + modal)
+│
+└── JS/
+    └── note_book.js        # Logique JavaScript
+```
 
-🚀 Installation
-Prérequis
+### Description des fichiers
 
-Navigateur web moderne (Chrome, Firefox, Edge)
-Serveur local (Live Server, http-server, etc.)
+| Fichier | Description |
+|---------|-------------|
+| `index.html` | Structure HTML, tableau des contacts |
+| `db.json` | Base de données JSON (contacts) |
+| `CSS/note_book.css` | Styles CSS (conteneur, modal, tableau) |
+| `JS/note_book.js` | Logique JS (fetch, modal, validation) |
 
-Étapes
+---
 
-Cloner ou télécharger le projet
+## 🚀 Installation
 
-bashgit clone https://github.com/votre-username/contact-book.git
+### Prérequis
+
+- **Navigateur web moderne** (Chrome, Firefox, Edge, Safari)
+- **Node.js** >= 14.x ([Télécharger Node.js](https://nodejs.org/))
+- **npm** >= 6.x (inclus avec Node.js)
+- **Serveur local** (Live Server pour VS Code, ou http-server)
+
+### Étapes d'installation
+
+#### 1. Cloner le dépôt
+```bash
+git clone https://github.com/votre-username/contact-book.git
 cd contact-book
 ```
 
-2. **Vérifier la structure des fichiers**
-```
-✓ index.html
-✓ note_book.css
-✓ note_book.js
-✓ db.json
-
-Lancer avec Live Server (VS Code)
-
-
-Clic droit sur index.html
-Sélectionner "Open with Live Server"
-
-OU
-
-Lancer avec http-server (Node.js)
-
-bashnpx http-server
+#### 2. Installer JSON Server globalement
+```bash
+npm install -g json-server
 ```
 
-5. **Accéder à l'application**
+#### 3. Vérifier l'installation
+```bash
+json-server --version
+# Devrait afficher : 0.17.x ou supérieur
 ```
-http://localhost:5500
 
-💻 Utilisation
-Ajouter un contact
+#### 4. Vérifier la structure des fichiers
+```bash
+contact-book/
+├── index.html          ✓
+├── db.json             ✓
+├── CSS/
+│   └── note_book.css   ✓
+└── JS/
+    └── note_book.js    ✓
+```
 
-Cliquer sur le bouton + vert en haut à droite
-La modal s'ouvre avec un formulaire
-Remplir les 4 champs obligatoires :
+---
 
-Nom
-Prénom
-Email (format validé)
-Téléphone
+## 💻 Utilisation
 
+### Démarrage de l'application
 
-Le bouton Valider devient vert
-Cliquer sur Valider
-Le contact apparaît dans le tableau
+#### Étape 1 : Lancer JSON Server
 
-Annuler l'ajout
+Dans un terminal, à la racine du projet :
+```bash
+json-server --watch db.json --port 3000
+```
 
-Cliquer sur Annuler (bouton gris)
-OU cliquer en dehors de la modal
+**Résultat attendu :**
+```
+\{^_^}/ hi!
 
+Loading db.json
+Done
 
-🏗️ Architecture technique
-HTML - Structure sémantique
-html<div class="container">
+Resources
+http://localhost:3000/contacts
+
+Home
+http://localhost:3000
+```
+
+> ⚠️ **Important** : Gardez ce terminal ouvert pendant l'utilisation de l'application.
+
+---
+
+#### Étape 2 : Ouvrir l'application
+
+**Option A : Avec Live Server (VS Code)**
+1. Installer l'extension "Live Server"
+2. Clic droit sur `index.html`
+3. Sélectionner **"Open with Live Server"**
+4. L'application s'ouvre sur `http://localhost:5500`
+
+**Option B : Avec http-server**
+```bash
+npx http-server
+```
+Ouvrir `http://localhost:8080`
+
+**Option C : Directement dans le navigateur**
+```
+Double-cliquer sur index.html
+```
+> ⚠️ Certaines fonctionnalités peuvent ne pas fonctionner (CORS).
+
+---
+
+### Utilisation de l'interface
+
+#### 1️⃣ Ajouter un contact
+
+1. Cliquer sur le bouton **+** (vert) en haut à droite
+2. La modal s'ouvre avec un formulaire
+3. Remplir les 4 champs obligatoires :
+   - **Nom** : Dupont
+   - **Prénom** : Marie
+   - **Email** : marie.dupont@example.com
+   - **Téléphone** : 0612345678
+4. Le bouton **Valider** devient vert
+5. Cliquer sur **Valider**
+6. Le contact apparaît dans le tableau
+
+#### 2️⃣ Annuler l'ajout
+
+- Cliquer sur le bouton **X** (rouge) en haut à droite de la modal
+- **OU** cliquer en dehors de la modal (sur le fond gris)
+
+#### 3️⃣ Contacter par email
+
+- Cliquer sur un email dans le tableau
+- Votre client email par défaut s'ouvre avec le destinataire pré-rempli
+
+---
+
+## 🏗️ Architecture technique
+
+### HTML - Structure sémantique
+```html
+<div class="container">
   <!-- Bordure orange arrondie -->
   
   <header class="header">
-    <!-- Bandeau bleu : titre + bouton + -->
+    <!-- Bandeau bleu : "Contact book" + bouton + -->
+    <h1>Contact book</h1>
+    <button class="bouton-add">+</button>
   </header>
   
   <table class="contacts-table">
-    <!-- Tableau avec en-têtes -->
+    <!-- En-tête du tableau -->
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    
+    <!-- Zone d'injection des contacts -->
     <tbody id="contacts-list">
-      <!-- Zone d'injection des contacts -->
+      <!-- Les lignes sont ajoutées ici dynamiquement -->
     </tbody>
   </table>
   
   <footer class="footer">
     <!-- Copyright -->
+    <p>(c) 2025 - Acme Corp.</p>
   </footer>
 </div>
-Points clés :
+```
 
-id="contacts-list" : cible JavaScript pour ajouter des lignes
-Balises sémantiques (<header>, <footer>)
+**Points clés :**
+- `id="contacts-list"` : cible JavaScript pour injecter les contacts
+- Balises sémantiques (`<header>`, `<footer>`)
+- Structure table (`<thead>`, `<tbody>`)
 
+---
 
-CSS - Points importants
-1. Bordure principale (conteneur)
-css.container {
+### CSS - Points importants
+
+#### 1. Conteneur principal (bordure orange)
+```css
+.container {
     max-width: 900px;
-    margin: 0 auto;
-    border: 3px solid #ff9933;  /* Bordure orange */
-    border-radius: 20px;        /* Coins arrondis */
-    overflow: hidden;           /* Cache les débordements */
+    margin: 0 auto;              /* Je centre horizontalement */
+    border: 3px solid #ff9933;   /* Bordure orange */
+    border-radius: 20px;         /* Coins arrondis */
+    overflow: hidden;            /* Cache les débordements */
 }
-2. Modal (popup)
-css.modal {
-    display: none;              /* Cachée par défaut */
-    position: fixed;            /* Fixe sur l'écran */
+```
+
+---
+
+#### 2. Modal (popup)
+```css
+.modal {
+    display: none;               /* Cachée par défaut */
+    position: fixed;             /* Fixe sur l'écran */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
-    z-index: 1000;              /* Au-dessus de tout */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;               /* Au-dessus de tout */
 }
-3. Validation visuelle du bouton
-css.btn-validate:disabled {
+```
+
+**Ouverture/Fermeture :**
+```javascript
+modal.style.display = 'flex';  // Ouverture
+modal.style.display = 'none';  // Fermeture
+```
+
+---
+
+#### 3. Bouton X en haut à droite
+```css
+.modal-buttons_exit .btn-cancel {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background-color: #ff6b6b;  /* Rouge */
+    border-radius: 50%;         /* Cercle */
+    width: 35px;
+    height: 35px;
+}
+```
+
+---
+
+#### 4. Validation visuelle du bouton
+```css
+.btn-validate:disabled {
     background-color: #ccc;     /* Gris quand désactivé */
     cursor: not-allowed;        /* Curseur interdit */
     opacity: 0.6;
 }
 
-JavaScript - Logique métier
-1. Création dynamique de la modal
-javascriptconst modal = document.createElement('div');
+.btn-validate:hover:not(:disabled) {
+    background-color: #40c057;  /* Vert foncé au survol */
+}
+```
+
+---
+
+### JavaScript - Logique métier
+
+#### 1. Création dynamique de la modal
+```javascript
+const modal = document.createElement('div');
 modal.className = 'modal';
 modal.innerHTML = `
     <div class="modal-content">
-        <!-- Formulaire complet -->
+        <div class="modal-buttons_exit">
+            <button type="button" class="btn-cancel">X</button>
+        </div>
+        <h2>Ajouter un contact</h2>
+        <form id="contact-form">
+            <!-- Formulaire complet -->
+        </form>
     </div>
 `;
 document.body.appendChild(modal); // J'ajoute au DOM
-Pourquoi ? La modal est créée une seule fois au chargement de la page.
+```
 
-2. Validation en temps réel
-javascriptfunction checkFormValidity() {
+**Pourquoi ?**  
+La modal est créée **une seule fois** au chargement de la page, puis affichée/cachée selon les besoins.
+
+---
+
+#### 2. Chargement des contacts au démarrage
+```javascript
+const API_URL = 'http://localhost:3000/contacts';
+
+// Je charge les contacts existants
+fetch(API_URL)
+    .then(res => res.json())
+    .then(contacts => {
+        contacts.forEach(contact => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${contact.nom}</td>
+                <td>${contact.prenom}</td>              
+                <td><a href="mailto:${contact.email}">${contact.email}</a></td>
+            `;
+            contactsList.appendChild(row);
+        });
+    })
+    .catch(err => console.error('Erreur chargement :', err));
+```
+
+**Flux :**
+1. Requête GET vers `/contacts`
+2. Récupération du tableau JSON
+3. Création d'une ligne `<tr>` pour chaque contact
+4. Ajout au `<tbody id="contacts-list">`
+
+---
+
+#### 3. Validation en temps réel
+```javascript
+function checkFormValidity() {
     let allFilled = true;
     
+    // Je vérifie chaque input
     inputs.forEach(input => {
         if (input.value.trim() === '') {
-            allFilled = false; // Un champ vide trouvé
+            allFilled = false;
         }
     });
     
-    btnValidate.disabled = !allFilled; // Active/désactive le bouton
+    // J'active/désactive le bouton Valider
+    btnValidate.disabled = !allFilled;
 }
 
 // Je surveille chaque input
 inputs.forEach(input => {
     input.addEventListener('input', checkFormValidity);
 });
-Mécanisme :
+```
 
-Chaque frappe clavier → checkFormValidity()
-Si tous les champs remplis → disabled = false (bouton vert)
-Sinon → disabled = true (bouton gris)
+**Mécanisme :**
+- Chaque frappe clavier → `checkFormValidity()`
+- Si **tous les champs remplis** → `disabled = false` (bouton vert)
+- Sinon → `disabled = true` (bouton gris)
 
+---
 
-3. Ouverture/Fermeture de la modal
-javascript// Ouverture
-btnAdd.addEventListener('click', () => {
-    modal.style.display = 'flex'; // Je rends visible
-    form.reset();                 // Je vide les champs
-    btnValidate.disabled = true;  // Je grise le bouton
-});
-
-// Fermeture (clic extérieur)
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {     // Si clic sur le fond noir
-        modal.style.display = 'none';
-    }
-});
-
-4. Ajout d'un contact au tableau
-javascriptform.addEventListener('submit', (e) => {
+#### 4. Ajout d'un contact (POST)
+```javascript
+form.addEventListener('submit', (e) => {
     e.preventDefault(); // J'empêche le rechargement
     
     // Je récupère les valeurs
@@ -239,21 +431,51 @@ javascriptform.addEventListener('submit', (e) => {
     const email = document.getElementById('modal-email').value;
     const phone = document.getElementById('modal-phone').value;
     
-    // Je crée une nouvelle ligne
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-        <td>${nom}</td>
-        <td>${prenom}</td>
-        <td>${email}</td>
-    `;
-    
-    contactsList.appendChild(newRow); // J'ajoute au tableau
-    modal.style.display = 'none';     // Je ferme la modal
-});
+    const newContact = { nom, prenom, email, phone };
 
-JSON - Structure des données
-Format du fichier db.json
-json{
+    // J'envoie au serveur (POST)
+    fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newContact)
+    })
+    .then(res => res.json())
+    .then(contact => {
+        // Je crée une ligne dans le tableau
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${contact.nom}</td>
+            <td>${contact.prenom}</td>
+            <td><a href="mailto:${contact.email}">${contact.email}</a></td>
+        `;
+        contactsList.appendChild(newRow);
+        
+        // Je ferme la modal
+        modal.style.display = 'none';
+        
+        console.log('Contact ajouté :', contact);
+    })
+    .catch(err => console.error('Erreur ajout :', err));
+});
+```
+
+**Flux complet :**
+1. Utilisateur remplit le formulaire
+2. Clic sur **Valider**
+3. Envoi POST vers `/contacts`
+4. JSON Server génère un ID et sauvegarde dans `db.json`
+5. Réponse contient le contact complet (avec ID)
+6. Création d'une ligne `<tr>` avec les données
+7. Ajout au tableau
+8. Fermeture de la modal
+
+---
+
+### JSON - Structure des données
+
+#### Format du fichier `db.json`
+```json
+{
   "contacts": [
     {
       "id": "862e",
@@ -268,52 +490,177 @@ json{
       "prenom": "Sophie",
       "email": "sophie.martin@example.com",
       "phone": "0698765432"
+    },
+    {
+      "nom": "Leclerc",
+      "prenom": "Pierre",
+      "email": "pierre.leclerc@example.com",
+      "phone": "0623456789",
+      "id": "a3f4"
     }
   ]
 }
-Champs :
+```
 
-id : Identifiant unique (4 caractères hexadécimaux)
-nom : Nom de famille
-prenom : Prénom
-email : Adresse email
-phone : Numéro de téléphone
+**Champs :**
+- `id` : Identifiant unique (généré par JSON Server)
+- `nom` : Nom de famille (string)
+- `prenom` : Prénom (string)
+- `email` : Adresse email (string)
+- `phone` : Numéro de téléphone (string)
 
+> 💡 **Note** : L'ID est généré automatiquement par JSON Server lors d'un POST.
 
-🔌 API & Endpoints
-Configuration JSON Server (optionnelle)
-Si vous souhaitez utiliser JSON Server pour une API REST complète :
-bash# Installation
-npm install -g json-server
+---
 
-# Lancement
+## 🔌 API REST
+
+### Configuration JSON Server
+```bash
 json-server --watch db.json --port 3000
-Endpoints disponibles
-MéthodeEndpointDescriptionGET/contactsRécupérer tous les contactsGET/contacts/:idRécupérer un contact par IDPOST/contactsAjouter un contactPUT/contacts/:idModifier un contactDELETE/contacts/:idSupprimer un contact
-Exemple de requête POST
-javascriptfetch('http://localhost:3000/contacts', {
+```
+
+**Options :**
+- `--watch` : Surveille les changements dans `db.json`
+- `--port 3000` : Port du serveur (par défaut 3000)
+
+---
+
+### Endpoints disponibles
+
+| Méthode | Endpoint | Description | Payload |
+|---------|----------|-------------|---------|
+| `GET` | `/contacts` | Récupérer tous les contacts | - |
+| `GET` | `/contacts/:id` | Récupérer un contact par ID | - |
+| `POST` | `/contacts` | Ajouter un contact | JSON |
+| `PUT` | `/contacts/:id` | Modifier un contact | JSON |
+| `PATCH` | `/contacts/:id` | Modifier partiellement | JSON |
+| `DELETE` | `/contacts/:id` | Supprimer un contact | - |
+
+---
+
+### Exemples de requêtes
+
+#### GET - Récupérer tous les contacts
+```javascript
+fetch('http://localhost:3000/contacts')
+    .then(res => res.json())
+    .then(contacts => console.log(contacts));
+```
+
+**Réponse :**
+```json
+[
+  {
+    "id": "862e",
+    "nom": "Dupont",
+    "prenom": "Jean",
+    "email": "jean.dupont@example.com",
+    "phone": "0612345678"
+  }
+]
+```
+
+---
+
+#### POST - Ajouter un contact
+```javascript
+fetch('http://localhost:3000/contacts', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-        id: Math.random().toString(36).substr(2, 4),
         nom: 'Durand',
-        prenom: 'Pierre',
-        email: 'pierre.durand@example.com',
+        prenom: 'Marie',
+        email: 'marie.durand@example.com',
         phone: '0687654321'
     })
-});
+})
+.then(res => res.json())
+.then(contact => console.log('Créé :', contact));
+```
 
-🎨 Personnalisation
-Changer les couleurs
-Bordure principale
-css.container {
-    border: 3px solid #ff9933; /* Remplacer #ff9933 */
+**Réponse :**
+```json
+{
+  "nom": "Durand",
+  "prenom": "Marie",
+  "email": "marie.durand@example.com",
+  "phone": "0687654321",
+  "id": "b7c3"
 }
-Bouton +
-css.bouton-add {
-    background-color: #90ee90; /* Remplacer #90ee90 */
+```
+
+---
+
+#### DELETE - Supprimer un contact
+```javascript
+fetch('http://localhost:3000/contacts/b7c3', {
+    method: 'DELETE'
+})
+.then(res => console.log('Supprimé'));
+```
+
+---
+
+## 🎨 Personnalisation
+
+### Changer les couleurs
+
+#### 1. Bordure principale (orange → rouge)
+```css
+.container {
+    border: 3px solid #ff3333; /* Rouge */
 }
-En-tête et footer
-css.header, .footer {
-    background-color: #66b3ff; /* Remplacer #66b3ff */
+```
+
+#### 2. Bouton + (vert → bleu)
+```css
+.bouton-add {
+    background-color: #3399ff; /* Bleu */
 }
+```
+
+#### 3. En-tête et footer (bleu → violet)
+```css
+.header, .footer {
+    background-color: #9966ff; /* Violet */
+}
+```
+
+#### 4. Modal (bleu → gris)
+```css
+.modal-content {
+    background-color: #f0f0f0; /* Gris clair */
+}
+```
+
+---
+
+### Ajouter une colonne "Téléphone"
+
+#### 1. HTML - Ajouter `<th>`
+```html
+<thead>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Téléphone</th> <!-- Nouvelle colonne -->
+    </tr>
+</thead>
+```
+
+#### 2. JavaScript - Ajouter `<td>`
+```javascript
+row.innerHTML = `
+    <td>${contact.nom}</td>
+    <td>${contact.prenom}</td>              
+    <td><a href="mailto:${contact.email}">${contact.email}</a></td>
+    <td>${contact.phone}</td> <!-- Nouvelle cellule -->
+`;
+```
+
+
+
+
+
