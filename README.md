@@ -14,9 +14,7 @@ Application web de gestion de contacts avec interface responsive et API REST.
 
 - [Aperçu](#-aperçu)
 - [Fonctionnalités](#-fonctionnalités)
-- [Technologies utilisées](#️-technologies-utilisées)
 - [Structure du projet](#-structure-du-projet)
-- [Installation](#-installation)
 - [Utilisation](#-utilisation)
 - [Architecture technique](#️-architecture-technique)
 - [API REST](#-api-rest)
@@ -69,17 +67,7 @@ Application web de gestion de contacts avec interface responsive et API REST.
 
 ---
 
-## 🛠️ Technologies utilisées
 
-| Technologie | Version | Utilisation |
-|-------------|---------|-------------|
-| **HTML5** | - | Structure sémantique |
-| **CSS3** | - | Mise en forme + Modal responsive |
-| **JavaScript ES6+** | - | Logique métier + Manipulation DOM |
-| **JSON Server** | ^0.17.0 | API REST + Base de données JSON |
-| **Fetch API** | - | Requêtes HTTP asynchrones |
-
----
 
 ## 📁 Structure du projet
 ```
@@ -106,44 +94,7 @@ contact-book/
 
 ---
 
-## 🚀 Installation
 
-### Prérequis
-
-- **Navigateur web moderne** (Chrome, Firefox, Edge, Safari)
-- **Node.js** >= 14.x ([Télécharger Node.js](https://nodejs.org/))
-- **npm** >= 6.x (inclus avec Node.js)
-- **Serveur local** (Live Server pour VS Code, ou http-server)
-
-### Étapes d'installation
-
-#### 1. Cloner le dépôt
-```bash
-git clone https://github.com/votre-username/contact-book.git
-cd contact-book
-```
-
-#### 2. Installer JSON Server globalement
-```bash
-npm install -g json-server
-```
-
-#### 3. Vérifier l'installation
-```bash
-json-server --version
-# Devrait afficher : 0.17.x ou supérieur
-```
-
-#### 4. Vérifier la structure des fichiers
-```bash
-contact-book/
-├── index.html          ✓
-├── db.json             ✓
-├── CSS/
-│   └── note_book.css   ✓
-└── JS/
-    └── note_book.js    ✓
-```
 
 ---
 
