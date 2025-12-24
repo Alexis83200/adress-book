@@ -538,31 +538,7 @@ fetch('http://localhost:3000/contacts/b7c3', {
 }
 ```
 
----
 
-### Ajouter une colonne "Téléphone"
-
-#### 1. HTML - Ajouter `<th>`
-```html
-<thead>
-    <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Email</th>
-        <th>Téléphone</th> <!-- Nouvelle colonne -->
-    </tr>
-</thead>
-```
-
-#### 2. JavaScript - Ajouter `<td>`
-```javascript
-row.innerHTML = `
-    <td>${contact.nom}</td>
-    <td>${contact.prenom}</td>              
-    <td><a href="mailto:${contact.email}">${contact.email}</a></td>
-    <td>${contact.phone}</td> <!-- Nouvelle cellule -->
-`;
-```
 
 
 
